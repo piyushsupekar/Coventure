@@ -1,10 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ink: 11 42 74;
+  --paper: 251 250 247;
+  --mint: 230 244 240;
+  --teal: 18 128 111;
+  --soft: 207 234 227;
+  --card: 255 255 255;
+  --deep: 11 42 74;
+  --line: 11 42 74;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --ink: 232 241 245;
+  --paper: 8 18 31;
+  --mint: 13 40 50;
+  --teal: 65 200 173;
+  --soft: 21 64 74;
+  --card: 15 31 48;
+  --deep: 5 12 21;
+  --line: 232 241 245;
+  color-scheme: dark;
+}
+
 html { scroll-behavior: smooth; }
-body { @apply bg-paper font-sans text-ink antialiased; }
-:focus-visible { outline: 3px solid #12806f; outline-offset: 3px; }
+body { @apply bg-paper font-sans text-ink antialiased; transition: background-color .3s, color .3s; }
+:focus-visible { outline: 3px solid rgb(var(--teal)); outline-offset: 3px; }
+.grad-text { background: linear-gradient(100deg, rgb(var(--teal)), #3b82c4); background-clip: text; color: transparent; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { animation: marquee 30s linear infinite; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
