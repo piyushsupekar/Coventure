@@ -30,6 +30,10 @@ html { scroll-behavior: smooth; }
 body { @apply bg-paper font-sans text-ink antialiased; transition: background-color .3s, color .3s; }
 :focus-visible { outline: 3px solid rgb(var(--teal)); outline-offset: 3px; }
 .grad-text { background: linear-gradient(100deg, rgb(var(--teal)), #3b82c4); background-clip: text; color: transparent; }
+.orb-a { background: #0b2a4a; border: 1px solid rgb(255 255 255 / .14); box-shadow: 0 22px 55px rgb(11 42 74 / .18); }
+.orb-b { background: #12806f; border: 1px solid rgb(255 255 255 / .18); box-shadow: 0 22px 55px rgb(18 128 111 / .2); }
+[data-theme='dark'] .orb-a { background: #174f78; box-shadow: 0 22px 55px rgb(0 0 0 / .35); }
+[data-theme='dark'] .orb-b { background: #128a76; box-shadow: 0 22px 55px rgb(0 0 0 / .3); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 .marquee { animation: marquee 30s linear infinite; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

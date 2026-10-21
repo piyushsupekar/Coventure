@@ -114,8 +114,8 @@ export default function App() {
               </div>
             </div>
             <div className="relative mx-auto h-[26rem] w-full max-w-md">
-              <div className="orb orb-a absolute left-0 top-10 grid h-64 w-64 place-items-center rounded-full bg-deep text-xl font-bold text-white"><span className="-translate-x-6">Companies</span></div>
-              <div className="orb orb-b absolute bottom-6 right-0 grid h-64 w-64 place-items-center rounded-full bg-teal/90 text-xl font-bold text-paper mix-blend-screen"><span className="translate-x-6">Talent</span></div>
+              <div className="orb orb-a absolute left-0 top-10 grid h-64 w-64 place-items-center rounded-full text-xl font-bold text-white"><span className="-translate-x-6">Companies</span></div>
+              <div className="orb orb-b absolute bottom-6 right-0 grid h-64 w-64 place-items-center rounded-full text-xl font-bold text-white"><span className="translate-x-6">Talent</span></div>
               {[['New ideas', '0%', '55%'], ['Real problems', '46%', '-2%'], ['Fresh perspectives', '4%', '0%'], ['Shared solutions', '84%', '26%']].map(([t, top, left]) => (
                 <span key={t} className="note absolute rounded-full border border-line bg-card px-3 py-1 font-hand text-xl shadow-md" style={{ top, left }}>{t}</span>
               ))}
