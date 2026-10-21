@@ -6,11 +6,11 @@ import { RefreshCw, Lightbulb, Rocket, Users, Target, BarChart3, LayoutDashboard
 gsap.registerPlugin(ScrollTrigger)
 
 const differences = [
-  { icon: RefreshCw, title: 'Two-way learning', text: 'Exchange knowledge, perspectives and skills.' },
-  { icon: Lightbulb, title: 'Fresh perspectives', text: 'Bring new ideas to products, teams and customer experiences.' },
-  { icon: Rocket, title: 'Innovation for growth', text: 'Explore new approaches and support creative problem-solving.' },
-  { icon: Users, title: 'Cross-functional collaboration', text: 'Connect people across different roles, skills and teams.' },
-  { icon: Target, title: 'Talent discovery', text: 'Recognize emerging skills and encourage continuous development.' },
+  { icon: RefreshCw, title: 'Two-Way Learning', text: 'Companies share industry knowledge while emerging talent brings current skills, new tools and a fresh point of view.' },
+  { icon: Lightbulb, title: 'Fresh Perspectives', text: 'Bring new ideas to products, teams and customer experiences by seeing familiar challenges through a different lens.' },
+  { icon: Rocket, title: 'Innovation for Growth', text: 'Explore practical new approaches, test possibilities and support creative problem-solving around real business needs.' },
+  { icon: Users, title: 'Cross-Functional Collaboration', text: 'Connect people across roles, skills and teams so knowledge moves freely and stronger solutions emerge together.' },
+  { icon: Target, title: 'Talent Discovery', text: 'Recognize emerging strengths through real work and create clearer paths for continuous development and future opportunities.' },
 ]
 const industries = [
   { icon: BarChart3, title: 'B2B & D2C brands', text: 'Understand your customers, build better products and experiences.', ex: 'Why do trial users drop off before their first order?' },
@@ -57,7 +57,6 @@ export default function App() {
       gsap.to('.orb-b', { x: -70, scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: 1 } })
       gsap.to('.note', { y: -8, duration: 2.4, ease: 'sine.inOut', yoyo: true, repeat: -1, stagger: 0.3 })
       gsap.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { scrub: 0.3, start: 0, end: 'max' } })
-      gsap.from('.reveal', { y: 40, opacity: 0, duration: 0.8, stagger: 0.12, scrollTrigger: { trigger: '#different', start: 'top 70%' } })
       gsap.from('.step', { opacity: 0, x: -40, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: '#how', start: 'top 70%' } })
       gsap.from('.equation > *', { opacity: 0, scale: 0.8, stagger: 0.15, scrollTrigger: { trigger: '.equation', start: 'top 90%' } })
     }, root)
@@ -146,13 +145,16 @@ export default function App() {
         <section id="different" className="bg-mint py-24">
           <div className="mx-auto max-w-6xl px-5">
             <h2 className="text-4xl font-extrabold tracking-tight">What makes CoVenture different</h2>
+            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink/75">
+              CoVenture creates a shared learning experience where companies and talent contribute equally, solve meaningful challenges and discover new possibilities together.
+            </p>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
               {differences.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="reveal rounded-3xl border border-line bg-card p-6 transition hover:-translate-y-1 hover:border-teal">
+                <article key={title} className="rounded-3xl border border-line bg-card p-6 shadow-sm transition hover:-translate-y-1 hover:border-teal hover:shadow-lg">
                   <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-soft text-teal"><Icon size={24} /></div>
                   <h3 className="text-lg font-bold">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink/75">{text}</p>
-                </div>
+                </article>
               ))}
             </div>
           </div>
