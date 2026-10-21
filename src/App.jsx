@@ -30,6 +30,15 @@ const steps = [
 
 const links = [['About', '#about'], ['Why CoVenture', '#different'], ['Industries', '#industries'], ['How it works', '#how'], ['Contact', '#contact']]
 
+const emailHref = 'mailto:?subject=Partnering%20with%20CoVenture&body=Hi%20CoVenture%20team%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20partnering%20with%20CoVenture.%0A'
+
+const heroNotes = [
+  { text: 'New ideas', className: 'left-[58%] top-[2%] text-ink' },
+  { text: 'Fresh perspectives', className: 'left-[8%] top-[20%] text-white' },
+  { text: 'Real problems', className: 'left-[6%] top-[48%] text-white' },
+  { text: 'Shared solutions', className: 'left-[53%] top-[76%] text-white' },
+]
+
 export default function App() {
   const root = useRef(null)
   const [open, setOpen] = useState(false)
@@ -67,7 +76,7 @@ export default function App() {
           <ul className="hidden gap-8 text-sm font-medium md:flex">
             {links.map(([l, h]) => <li key={h}><a href={h} onClick={(e) => go(e, h)} className="hover:text-teal">{l}</a></li>)}
           </ul>
-          <a href="#contact" onClick={(e) => go(e, '#contact')} className="hidden rounded-full bg-ink px-5 py-2 text-sm font-bold text-white hover:bg-teal-deep md:block">Partner with us</a>
+          <a href={emailHref} className="hidden rounded-full bg-ink px-5 py-2 text-sm font-bold text-white hover:bg-teal-deep md:block">Partner with us</a>
           <button className="md:hidden" aria-label="Toggle menu" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
         </nav>
         {open && (
@@ -92,7 +101,7 @@ export default function App() {
                 CoVenture is a reverse internship platform where businesses and talent exchange skills, solve real challenges, and grow together.
               </p>
               <div className="hero-sub mt-8 flex flex-wrap gap-4">
-                <a href="#contact" onClick={(e) => go(e, '#contact')} className="rounded-full bg-ink px-7 py-3 font-bold text-white hover:bg-teal-deep">Partner with CoVenture</a>
+                <a href={emailHref} className="rounded-full bg-ink px-7 py-3 font-bold text-white hover:bg-teal-deep">Partner with CoVenture</a>
                 <a href="#how" onClick={(e) => go(e, '#how')} className="rounded-full border-2 border-ink px-7 py-3 font-bold hover:bg-ink hover:text-white">See how it works</a>
               </div>
             </div>
@@ -101,9 +110,10 @@ export default function App() {
               <div className="absolute bottom-6 right-0 h-64 w-64 rounded-full bg-teal mix-blend-multiply" />
               <span className="absolute left-6 top-28 text-2xl font-bold text-white">Companies</span>
               <span className="absolute bottom-24 right-8 text-2xl font-bold text-white">Talent</span>
-              {['New ideas', 'Real problems', 'Fresh perspectives', 'Shared solutions'].map((t, i) => (
-                <span key={t} className="hero-note absolute font-hand text-2xl text-ink"
-                  style={{ top: ['0%', '42%', '8%', '82%'][i], left: ['52%', '-4%', '2%', '30%'][i] }}>{t}</span>
+              {heroNotes.map(({ text, className }) => (
+                <span key={text} className={`hero-note absolute z-10 whitespace-nowrap font-hand text-xl font-semibold sm:text-2xl ${className}`}>
+                  {text}
+                </span>
               ))}
             </div>
           </div>
@@ -171,7 +181,7 @@ export default function App() {
         <section id="contact" className="mx-auto max-w-3xl px-5 py-24 text-center">
           <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl">Let’s build a stronger, smarter future together.</h2>
           <p className="mx-auto mt-5 max-w-xl text-lg text-ink/80">Tell us about your team and the problems you want fresh eyes on. We’ll get back with the next steps.</p>
-          <a href="mailto:hello@coventure.example?subject=Partnering%20with%20CoVenture" className="mt-8 inline-block rounded-full bg-teal px-8 py-4 text-lg font-bold text-white hover:bg-teal-deep">Partner with CoVenture</a>
+          <a href={emailHref} className="mt-8 inline-block rounded-full bg-teal px-8 py-4 text-lg font-bold text-white hover:bg-teal-deep">Partner with CoVenture</a>
         </section>
       </main>
 
